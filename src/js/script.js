@@ -1,11 +1,18 @@
 function addTask() {
-    var ul = document.getElementById("todo")
-    var li = document.createElement("li")
-    var children = ul.children.length + 1
+    let ul = document.getElementById("todo")
+    let li = document.createElement("li")
+    let children = ul.children.length + 1
     li.setAttribute("id", "element" + children)
     let task = window.prompt("Enter task: ")
     if(task != "") {
-        li.appendChild(document.createTextNode(task));
+        let checkbox = document.createElement("INPUT")
+        let i = document.createElement('i')
+        i.setAttribute("class", "fa fa-times closeTask")
+        checkbox.setAttribute("type", "checkbox")
+        checkbox.setAttribute("class", "check")
+        li.appendChild(checkbox)
+        li.appendChild(document.createTextNode(task))
+        li.appendChild(i)
         ul.appendChild(li)
     }
     else {
